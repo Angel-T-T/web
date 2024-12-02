@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantenimiento</title>
+    <style>
+        /* Estilos Generales */
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #f5f5f5;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #FF9800, #F57C00);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            animation: slideIn 1.5s ease-out;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #1E1E1E;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 2s ease;
+        }
+
+        h2 {
+            color: #FF9800;
+            border-bottom: 2px solid #FF9800;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        img {
+            max-width: 80%;
+            border-radius: 10px;
+            animation: scaleIn 1s ease-out;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .maintenance-button {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 10px;
+            background: #FF9800;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .maintenance-button:hover {
+            background: #F57C00;
+            transform: translateY(-3px);
+        }
+
+        .back-button {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #4CAF50, #388E3C);
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, background 0.3s;
+            max-width: 300px;
+        }
+
+        .back-button:hover {
+            background: #388E3C;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #222;
+            color: #fff;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #FF9800;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Mantenimiento</h1>
+    </header>
+    <main>
+        <section>
+            <h2>¿Qué es el Mantenimiento?</h2>
+            <p>El mantenimiento es el conjunto de actividades destinadas a mantener una aplicación en óptimas condiciones. Esto incluye la corrección de errores, la mejora de rendimiento, y la actualización a nuevas versiones o plataformas.</p>
+            <div class="image-container">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Mantenimiento">
+            </div>
+        </section>
+
+        <section>
+            <h2>Tipos de Mantenimiento</h2>
+            <p>El mantenimiento se divide en varias categorías:</p>
+            <ul>
+                <li><strong>Correctivo:</strong> Reparación de errores detectados en la aplicación.</li>
+                <li><strong>Preventivo:</strong> Modificaciones para evitar posibles problemas futuros.</li>
+                <li><strong>Adaptativo:</strong> Ajustes para que la aplicación funcione en nuevos entornos.</li>
+                <li><strong>Evolutivo:</strong> Adición de nuevas funcionalidades.</li>
+            </ul>
+            <div class="image-container">
+                <img src="https://cdn-icons-png.flaticon.com/512/3595/3595455.png" alt="Tipos de Mantenimiento">
+            </div>
+        </section>
+
+        <section>
+            <h2>Interactividad: Simula una Tarea de Mantenimiento</h2>
+            <p>Presiona el siguiente botón para simular una tarea de mantenimiento en la aplicación:</p>
+            <div class="button-container">
+                <button class="maintenance-button" onclick="simulateMaintenance()">Realizar Mantenimiento</button>
+            </div>
+            <div id="maintenance-status" class="image-container"></div>
+        </section>
+
+        <a href="index.html" class="back-button">Volver al Inicio</a>
+    </main>
+    <footer>
+        <p>Desarrollado como parte de la formación en <a href="https://es.bitdegree.org/tutoriales/desarrollar-aplicaciones-moviles-multiplataforma" target="_blank">Apps Multiplataforma</a>.</p>
+    </footer>
+
+    <script>
+        function simulateMaintenance() {
+            const statusDiv = document.getElementById('maintenance-status');
+            statusDiv.innerHTML = `
+                <p style="color: #FF9800; font-size: 1.2em; text-align: center;">
+                    La tarea de mantenimiento se ha completado con éxito.
+                </p>
+                <div class="image-container">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1040/1040798.png" alt="Mantenimiento Exitoso">
+                </div>
+            `;
+        }
+    </script>
+</body>
+
+</html>

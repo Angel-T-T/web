@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integración con Servicios en la Nube y APIs</title>
+    <style>
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Estilos generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            animation: fadeIn 1.5s ease;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 2em 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            color: #4CAF50;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #222;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 2s ease;
+        }
+
+        h2 {
+            color: #4CAF50;
+            margin-top: 20px;
+        }
+
+        section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #2a2a2a;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        section h3 {
+            color: #E9C46A;
+            margin-bottom: 10px;
+        }
+
+        section img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        code {
+            display: block;
+            background: #444;
+            color: #E9C46A;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            overflow-x: auto;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background: #45a049;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #333;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Integración con Servicios en la Nube y APIs</h1>
+        <p>Conecta tu aplicación con el mundo: bases de datos, almacenamiento, autenticación y más.</p>
+    </header>
+    <main>
+        <h2>Introducción</h2>
+        <p>
+            Las APIs y los servicios en la nube son esenciales para crear aplicaciones modernas y funcionales. 
+            Permiten integrar almacenamiento, procesamiento de datos, autenticación y herramientas avanzadas de manera sencilla y escalable.
+        </p>
+        <img src="https://cdn.pixabay.com/photo/2016/11/29/04/05/cloud-1869237_960_720.jpg" alt="Servicios en la nube">
+
+        <section>
+            <h3>1. ¿Qué es una API?</h3>
+            <p>
+                Una API (Application Programming Interface) es un puente que conecta diferentes sistemas y aplicaciones. 
+                Permite a los desarrolladores acceder a funcionalidades de terceros, como mapas, procesamiento de pagos o datos meteorológicos.
+            </p>
+            <img src="https://th.bing.com/th/id/OIP.PlvaX1gxc7Qv4fVWM3a1PAAAAA?rs=1&pid=ImgDetMain" alt="Estructura de una API">
+            <p>Ejemplo básico de solicitud API con **Fetch**:</p>
+            <code>
+fetch('https://api.ejemplo.com/datos')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+            </code>
+        </section>
+
+        <section>
+            <h3>2. Uso de Firebase para Integraciones</h3>
+            <p>
+                Firebase es una plataforma en la nube de Google que facilita la autenticación, almacenamiento de datos 
+                y más. Ideal para aplicaciones móviles y web.
+            </p>
+            <p>Pasos para configurar Firebase:</p>
+            <ul>
+                <li>Crear un proyecto en Firebase Console.</li>
+                <li>Configurar las credenciales de tu aplicación.</li>
+                <li>Usar las funciones de Firebase en tu código.</li>
+            </ul>
+            <img src="https://cdn-icons-png.flaticon.com/512/888/888839.png" alt="Logo de Firebase">
+            <p>Ejemplo de código:</p>
+            <code>
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+    apiKey: "your-api-key",
+    authDomain: "your-auth-domain",
+    projectId: "your-project-id",
+    storageBucket: "your-storage-bucket",
+    messagingSenderId: "your-messaging-sender-id",
+    appId: "your-app-id"
+};
+
+const app = initializeApp(firebaseConfig);
+            </code>
+        </section>
+
+        <section>
+            <h3>3. Buenas Prácticas con APIs</h3>
+            <ul>
+                <li>Usar **HTTPS** para garantizar seguridad en las solicitudes.</li>
+                <li>Optimizar las llamadas API para reducir tiempos de carga.</li>
+                <li>Manejar errores adecuadamente para mejorar la experiencia del usuario.</li>
+                <li>No exponer claves API en el frontend; almacenarlas en el servidor.</li>
+                <li>Documentar las integraciones para facilitar el mantenimiento.</li>
+            </ul>
+            <img src="https://cdn.pixabay.com/photo/2016/10/14/16/37/maintenance-1743335_960_720.jpg" alt="Buenas prácticas con APIs">
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Desarrollo de Aplicaciones. Aprende más sobre <a href="https://developer.mozilla.org/es/docs/Web/API" target="_blank">APIs</a> y <a href="https://firebase.google.com/" target="_blank">Firebase</a>.</p>
+    </footer>
+</body>
+</html>

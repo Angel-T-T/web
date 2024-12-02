@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pruebas y Depuración</title>
+    <style>
+        /* Estilos Generales */
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #f5f5f5;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4CAF50, #388E3C);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            animation: slideIn 1.5s ease-out;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #1E1E1E;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 2s ease;
+        }
+
+        h2 {
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        img {
+            max-width: 80%;
+            border-radius: 10px;
+            animation: scaleIn 1s ease-out;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .test-button {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 10px;
+            background: #4CAF50;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .test-button:hover {
+            background: #45A049;
+            transform: translateY(-3px);
+        }
+
+        .back-button {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #2196F3, #1E88E5);
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, background 0.3s;
+            max-width: 300px;
+        }
+
+        .back-button:hover {
+            background: #1976D2;
+            transform: translateY(-3px);
+        }
+
+        .log-container {
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-y: auto;
+            max-height: 300px;
+            color: #0f0;
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #222;
+            color: #fff;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #4CAF50;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Pruebas y Depuración</h1>
+    </header>
+    <main>
+        <section>
+            <h2>¿Qué es Pruebas y Depuración?</h2>
+            <p>En el desarrollo de aplicaciones móviles multiplataforma, las **pruebas** garantizan que las funcionalidades operen correctamente bajo diferentes circunstancias. La **depuración** identifica y resuelve errores durante el desarrollo.</p>
+            <div class="image-container">
+                <img src="https://cdn-icons-png.flaticon.com/512/4341/4341050.png" alt="Pruebas y Depuración">
+            </div>
+        </section>
+
+        <section>
+            <h2>Importancia del Mantenimiento</h2>
+            <p>El mantenimiento asegura que una aplicación sea sostenible a largo plazo, proporcionando actualizaciones regulares, mejorando el rendimiento y adaptándose a cambios en plataformas o servicios.</p>
+            <div class="image-container">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Mantenimiento">
+            </div>
+        </section>
+
+        <section>
+            <h2>Interactividad: Herramientas de Pruebas</h2>
+            <p>Utilizamos herramientas automatizadas y manuales para garantizar que cada módulo de la aplicación funcione de manera óptima. Haz clic en los botones para simular diferentes pruebas:</p>
+            <div class="button-container">
+                <button class="test-button" onclick="runTest('Test de Conexión')">Ejecutar Test de Conexión</button>
+                <button class="test-button" onclick="runTest('Prueba de Funciones')">Prueba de Funciones</button>
+                <button class="test-button" onclick="clearLog()">Limpiar Log</button>
+            </div>
+        </section>
+
+        <section>
+            <h2>Log de Depuración</h2>
+            <div class="log-container" id="log"></div>
+        </section>
+
+        <a href="index.html" class="back-button">Volver al Inicio</a>
+    </main>
+    <footer>
+        <p>Desarrollado como parte de la formación en <a href="https://es.bitdegree.org/tutoriales/desarrollar-aplicaciones-moviles-multiplataforma" target="_blank">Apps Multiplataforma</a>.</p>
+    </footer>
+
+    <script>
+        // Función para simular pruebas
+        function runTest(testName) {
+            const logContainer = document.getElementById('log');
+            const message = `[${new Date().toLocaleTimeString()}] ${testName} completado con éxito.\n`;
+            logContainer.textContent += message;
+            logContainer.scrollTop = logContainer.scrollHeight; // Auto-scroll
+        }
+
+        // Función para limpiar el log
+        function clearLog() {
+            const logContainer = document.getElementById('log');
+            logContainer.textContent = '';
+        }
+    </script>
+</body>
+
+</html>

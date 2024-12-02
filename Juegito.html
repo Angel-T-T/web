@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego: Diseñador de Interfaces</title>
+    <style>
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%,
+            100% {
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+            }
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Estilos generales */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+            color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            color: #4CAF50;
+            font-size: 3em;
+            margin: 0;
+            text-shadow: 0 0 10px #4CAF50, 0 0 20px #81C784;
+            animation: pulse 2s infinite;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #e0e0e0;
+            margin: 10px 0 0;
+            text-shadow: 0 0 5px #81C784;
+        }
+
+        .game-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+            max-width: 1200px;
+            width: 90%;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .elements {
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), 0 0 10px #4CAF50;
+            text-align: center;
+            flex: 1;
+            max-width: 250px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .elements h2 {
+            margin-bottom: 15px;
+            color: #4CAF50;
+            text-shadow: 0 0 10px #4CAF50;
+        }
+
+        .elements div {
+            margin: 10px 0;
+            padding: 15px;
+            background: linear-gradient(135deg, #4CAF50, #388E3C);
+            color: white;
+            border-radius: 5px;
+            cursor: grab;
+            font-size: 1.1em;
+            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), 0 0 10px #4CAF50;
+        }
+
+        .elements div:hover {
+            background: #2e7d32;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6), 0 0 15px #4CAF50;
+        }
+
+        .canvas {
+            background: #1e1e1e;
+            width: 400px;
+            height: 600px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7), 0 0 20px #81C784;
+            position: relative;
+            padding: 15px;
+            overflow: hidden;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .canvas div {
+            position: absolute;
+            padding: 15px;
+            border: 1px solid white;
+            color: white;
+            border-radius: 10px;
+            background-color: #4CAF50;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+        }
+
+        .canvas div:hover {
+            background: #388E3C;
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6), 0 0 15px #4CAF50;
+        }
+
+        .canvas div img {
+            max-width: 100px;
+            max-height: 100px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .buttons-container {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex: 1;
+        }
+
+        button {
+            background-color: #f44336;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), 0 0 10px #FF5722;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        button:hover {
+            background-color: #d32f2f;
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6), 0 0 20px #FF5722;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background: #444;
+            color: white;
+            width: 100%;
+            text-align: center;
+            border-top: 5px solid #4CAF50;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5), 0 0 10px #81C784;
+        }
+
+        footer p {
+            font-size: 1em;
+            margin: 0;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Diseñador de Interfaces</h1>
+        <p>Arrastra los elementos a la pantalla para crear tu diseño. Haz clic en ellos para editarlos o borrarlos.</p>
+    </header>
+    <div class="game-container">
+        <!-- Barra de elementos arrastrables -->
+        <div class="elements">
+            <div draggable="true" class="element" data-type="titulo">Título</div>
+            <div draggable="true" class="element" data-type="boton">Botón</div>
+            <div draggable="true" class="element" data-type="imagen">Imagen</div>
+            <div draggable="true" class="element" data-type="texto">Entrada de Texto</div>
+        </div>
+
+        <!-- Canvas donde se arrastran los elementos -->
+        <div class="canvas" id="canvas">
+            <p style="text-align: center; margin: 0; padding: 10px; color: #4CAF50;">Pantalla de tu app</p>
+        </div>
+    </div>
+
+    <!-- Botón de Borrar -->
+    <button class="delete-btn" id="delete-btn">Borrar Elemento Seleccionado</button>
+
+    <!-- Botón para realizar una acción aleatoria -->
+    <button class="delete-btn" id="random-action-btn">Realizar Acción Aleatoria</button>
+
+    <footer>
+        <p>Juego creado como parte del módulo: Desarrollo de Aplicaciones Móviles Multiplataforma.</p>
+    </footer>
+
+    <script>
+        const elements = document.querySelectorAll('.element');
+        const canvas = document.getElementById('canvas');
+        const deleteBtn = document.getElementById('delete-btn');
+        const randomActionBtn = document.getElementById('random-action-btn');
+        let selectedElement = null;
+
+        // Función para arrastrar los elementos
+        elements.forEach(element => {
+            element.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('text/plain', e.target.innerText);
+                e.dataTransfer.setData('type', e.target.getAttribute('data-type'));
+            });
+        });
+
+        // Permitimos que los elementos sean soltados en el canvas
+        canvas.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+
+        // Evento de soltado del elemento
+        canvas.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const text = e.dataTransfer.getData('text/plain');
+            const type = e.dataTransfer.getData('type');
+            const newElement = document.createElement('div');
+            newElement.innerText = text;
+            newElement.setAttribute('contenteditable', 'true');
+            newElement.setAttribute('data-type', type);
+            newElement.style.top = `${e.offsetY - 10}px`;
+            newElement.style.left = `${e.offsetX - 50}px`;
+
+            // Si el tipo es "imagen", agregar la funcionalidad para cargar imágenes
+            if (type === "imagen") {
+                newElement.innerHTML = 'Haz clic para agregar imagen';
+                newElement.style.backgroundColor = "#4CAF50";
+                newElement.onclick = () => {
+                    const imgUrl = prompt("Ingresa la URL de la imagen:");
+                    if (imgUrl) {
+                        const img = document.createElement('img');
+                        img.src = imgUrl;
+                        newElement.innerHTML = '';
+                        newElement.appendChild(img);
+                    }
+                };
+            }
+
+            // Permitir que el elemento se mueva dentro del canvas
+            newElement.setAttribute('draggable', 'true');
+            newElement.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('text/plain', newElement.innerText);
+                e.dataTransfer.setData('type', newElement.getAttribute('data-type'));
+            });
+
+            // Hacer que el elemento se pueda mover dentro del canvas
+            newElement.addEventListener('mousedown', (e) => {
+                selectedElement = newElement;
+                const offsetX = e.clientX - selectedElement.offsetLeft;
+                const offsetY = e.clientY - selectedElement.offsetTop;
+
+                function mouseMove(e) {
+                    selectedElement.style.left = `${e.clientX - offsetX}px`;
+                    selectedElement.style.top = `${e.clientY - offsetY}px`;
+                }
+
+                function mouseUp() {
+                    document.removeEventListener('mousemove', mouseMove);
+                    document.removeEventListener('mouseup', mouseUp);
+                }
+
+                document.addEventListener('mousemove', mouseMove);
+                document.addEventListener('mouseup', mouseUp);
+            });
+
+            // Añadir el nuevo elemento al canvas
+            canvas.appendChild(newElement);
+        });
+
+        // Función para borrar el elemento seleccionado
+        deleteBtn.addEventListener('click', () => {
+            if (selectedElement) {
+                canvas.removeChild(selectedElement);
+                selectedElement = null; // Restablecer el elemento seleccionado
+            }
+        });
+
+        // Acción aleatoria del botón (efecto parpadeante)
+        randomActionBtn.addEventListener('click', () => {
+            const elementsInCanvas = canvas.querySelectorAll('div');
+            const randomElement = elementsInCanvas[Math.floor(Math.random() * elementsInCanvas.length)];
+
+            if (randomElement) {
+                randomElement.style.animation = 'blink 0.5s infinite';
+                setTimeout(() => {
+                    randomElement.style.animation = ''; // Detener el parpadeo después de 3 segundos
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+
+</html>

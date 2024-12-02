@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desarrollo de Aplicaciones Móviles Multiplataforma</title>
+    <style>
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+            }
+
+            50% {
+                box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            animation: fadeIn 2s ease;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #222;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1.5s ease;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        h2 {
+            color: #f0f0f0;
+            margin-top: 20px;
+        }
+
+        /* Botones del menú */
+        .menu-item {
+            padding: 15px;
+            margin: 10px 0;
+            background: linear-gradient(145deg, #2b2b2b, #333);
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .menu-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.2;
+            z-index: -1;
+            transition: transform 0.5s ease, opacity 0.3s ease;
+        }
+
+        .menu-item:hover img {
+            transform: scale(1.1);
+            opacity: 0.4;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6);
+            animation: pulse 1.5s infinite;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #333;
+            color: white;
+            margin-top: 20px;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Desarrollo de Aplicaciones Móviles Multiplataforma</h1>
+    </header>
+    <main>
+        <h2>Submódulo 1: Diseña Aplicaciones Móviles Multiplataforma</h2>
+        <div class="menu-item">
+            <a href="introduccion.html" style="display: block; text-decoration: none; color: inherit;">
+                <img src="https://th.bing.com/th/id/OIP.icJ3KdwX9x7MC0zjXMTCkwHaD2?rs=1&pid=ImgDetMain"
+                    alt="Introducción">
+                Introducción
+            </a>
+        </div>
+        <div class="menu-item">
+            <a href="diseno_interfaces.html.html" style="display: block; text-decoration: none; color: inherit;">
+                <img src="https://th.bing.com/th/id/OIP.tfQAJ0lon_S34br6rNSlcQHaEK?rs=1&pid=ImgDetMain"
+                    alt="Diseño de Interfaces">
+                Diseño de Interfaces Atractivas
+            </a>
+        </div>
+        <div class="menu-item">
+            <a href="funcionalidades.html" style="display: block; text-decoration: none; color: inherit;">
+                <img src="https://image.jimcdn.com/app/cms/image/transf/none/path/s2533a3491effc287/image/i3e9630008b673167/version/1425553357/image.png"
+                    alt="Funcionalidades Avanzadas">
+                Funcionalidades Avanzadas
+            </a>
+        </div>
+        <h2>Submódulo 2: Implementa Aplicaciones Móviles Multiplataforma</h2>
+        <div class="menu-item">
+            <a href="integracion_nube.html" style="display: block; text-decoration: none; color: inherit;">
+                <img src="https://cdn-icons-png.flaticon.com/512/2920/2920250.png" alt="Integración Nube y APIs">
+                Integración con Servicios en la Nube y APIs
+            </a>
+        </div>
+        <div class="menu-item">
+            <a href="pruebas_depuracion.html" style="display: block; text-decoration: none; color: inherit;">
+                <img src="https://cdn-icons-png.flaticon.com/512/4341/4341050.png" alt="Pruebas y Depuración">
+                Pruebas y Depuración
+            </a>
+        </div>
+        <div class="menu-item">
+            <a href="publicacion.html" style="display: block; text-decoration: none; color: inherit;">
+                <img src="https://cdn-icons-png.flaticon.com/512/2362/2362238.png" alt="Publicación">
+                Publicación
+            </a>
+        </div>
+        <div class="menu-item">
+            <a href="mantenimiento.html" style="display: block; text-decoration: none; color: inherit;">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Mantenimiento">
+                Mantenimiento
+            </a>
+        </div>
+        <div class="menu-item">
+            <a href="Juegito.html" style="display: block; text-decoration: none; color: inherit;">
+                <img src="https://lh4.googleusercontent.com/VyCwcPMAKQRMeSnF_gI7XXzRtIGJTpi39jVXbAkXvZNAg9s8U016P4jQJDjoKqFvrIXqk4CN1WBPhv7_M6oz6NGwQGCbkTu8VMCJO1PxVsH4oJEbdG50zgVTcMV2V-dFRrtCeHr1pXlcfFqaJmrbLIQ" alt="Juego">
+                Ejemplo de lo que se busca este submodulo
+            </a>
+        </div>
+    </main>
+    <footer>
+        <p>Creado a partir del contenido proporcionado. Aprende más sobre <a
+                href="https://es.bitdegree.org/tutoriales/desarrollar-aplicaciones-moviles-multiplataforma"
+                target="_blank">Desarrollo de Apps Móviles</a>.</p>
+    </footer>
+</body>
+
+</html>

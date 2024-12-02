@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicación</title>
+    <style>
+        /* Estilos Generales */
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #f5f5f5;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2196F3, #1E88E5);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            animation: slideIn 1.5s ease-out;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #1E1E1E;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 2s ease;
+        }
+
+        h2 {
+            color: #2196F3;
+            border-bottom: 2px solid #2196F3;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        img {
+            max-width: 80%;
+            border-radius: 10px;
+            animation: scaleIn 1s ease-out;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .publish-button {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 10px;
+            background: #4CAF50;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .publish-button:hover {
+            background: #45A049;
+            transform: translateY(-3px);
+        }
+
+        .back-button {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #4CAF50, #388E3C);
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, background 0.3s;
+            max-width: 300px;
+        }
+
+        .back-button:hover {
+            background: #388E3C;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #222;
+            color: #fff;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #2196F3;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Publicación</h1>
+    </header>
+    <main>
+        <section>
+            <h2>¿Qué es la Publicación?</h2>
+            <p>En el desarrollo de aplicaciones móviles multiplataforma, la publicación es el proceso de poner a disposición del público la aplicación en tiendas de aplicaciones como Google Play Store y Apple App Store. Incluye la configuración de metadatos, políticas de privacidad y requisitos técnicos para cumplir con los estándares de cada plataforma.</p>
+            <div class="image-container">
+                <img src="https://cdn-icons-png.flaticon.com/512/2362/2362238.png" alt="Publicación">
+            </div>
+        </section>
+
+        <section>
+            <h2>Pasos para Publicar una Aplicación</h2>
+            <p>El proceso de publicación consta de los siguientes pasos:</p>
+            <ol>
+                <li>Registrar una cuenta de desarrollador en la tienda correspondiente.</li>
+                <li>Configurar los metadatos de la aplicación (nombre, descripción, iconos, capturas de pantalla).</li>
+                <li>Probar la aplicación en diferentes dispositivos.</li>
+                <li>Subir el archivo de la aplicación (APK para Android o IPA para iOS).</li>
+                <li>Esperar la aprobación de la tienda.</li>
+            </ol>
+            <div class="image-container">
+                <img src="https://cdn-icons-png.flaticon.com/512/1588/1588897.png" alt="Pasos de Publicación">
+            </div>
+        </section>
+
+        <section>
+            <h2>Interactividad: Publicar Aplicación</h2>
+            <p>Simula la publicación de tu aplicación haciendo clic en el siguiente botón:</p>
+            <div class="button-container">
+                <button class="publish-button" onclick="simulatePublish()">Publicar Aplicación</button>
+            </div>
+            <div id="publish-status" class="image-container"></div>
+        </section>
+
+        <a href="index.html" class="back-button">Volver al Inicio</a>
+    </main>
+    <footer>
+        <p>Desarrollado como parte de la formación en <a href="https://es.bitdegree.org/tutoriales/desarrollar-aplicaciones-moviles-multiplataforma" target="_blank">Apps Multiplataforma</a>.</p>
+    </footer>
+
+    <script>
+        function simulatePublish() {
+            const statusDiv = document.getElementById('publish-status');
+            statusDiv.innerHTML = `
+                <p style="color: #4CAF50; font-size: 1.2em; text-align: center;">
+                    Tu aplicación ha sido publicada exitosamente.
+                </p>
+                <div class="image-container">
+                    <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="Éxito en la Publicación">
+                </div>
+            `;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionalidades Avanzadas</title>
+    <style>
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            animation: fadeIn 1.5s ease;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1.5em 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #222;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 2s ease;
+        }
+
+        h1 {
+            color: #4CAF50;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            color: #4CAF50;
+            margin-top: 20px;
+        }
+
+        section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #2a2a2a;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            animation: slideIn 1s ease;
+        }
+
+        section h3 {
+            color: #E9C46A;
+            margin-bottom: 10px;
+        }
+
+        code {
+            display: block;
+            background: #444;
+            color: #E9C46A;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            overflow-x: auto;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background: #45a049;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #333;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Funcionalidades Avanzadas</h1>
+    </header>
+    <main>
+        <h2>Explora Funciones Avanzadas</h2>
+
+        <section>
+            <h3>1. Creación de Modales</h3>
+            <p>Un modal es una ventana emergente útil para mostrar mensajes o formularios.</p>
+            <button onclick="showModal()">Abrir Modal</button>
+            <div id="modal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #333; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);">
+                <p>Este es un ejemplo de modal.</p>
+                <button onclick="closeModal()">Cerrar</button>
+            </div>
+            <code>
+&lt;button onclick="showModal()"&gt;Abrir Modal&lt;/button&gt;
+&lt;div id="modal" style="display: none;"&gt;
+    &lt;p&gt;Contenido del modal&lt;/p&gt;
+    &lt;button onclick="closeModal()"&gt;Cerrar&lt;/button&gt;
+&lt;/div&gt;
+            </code>
+        </section>
+
+        <section>
+            <h3>2. Efectos con Parallax</h3>
+            <p>El efecto Parallax crea profundidad moviendo fondos a diferentes velocidades.</p>
+            <div style="height: 200px; background: url('https://via.placeholder.com/800x300') no-repeat center center / cover; animation: pulse 3s infinite;"></div>
+            <code>
+background: url('image.jpg') no-repeat center center / cover;
+animation: pulse 3s infinite;
+            </code>
+        </section>
+
+        <section>
+            <h3>3. Scroll Animado</h3>
+            <p>Agrega efectos al hacer scroll en la página para captar la atención del usuario.</p>
+            <code>
+/* Código CSS para scroll animado */
+@keyframes slideIn { ... }
+animation: slideIn 1s ease;
+            </code>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Desarrollo Avanzado. Diseñado para interfaces modernas.</p>
+    </footer>
+
+    <script>
+        function showModal() {
+            document.getElementById('modal').style.display = 'block';
+        }
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
